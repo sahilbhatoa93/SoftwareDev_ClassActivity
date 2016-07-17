@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+s<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -9,7 +9,48 @@
 <link href="default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
 
+<script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+
+<script>
+var myCenter=new google.maps.LatLng(45.496608, -73.570957);
+var marker;
+
+function initialize()
+{
+var mapProp = {
+  center:myCenter,
+  zoom:15,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker=new google.maps.Marker({
+  position:myCenter,
+  animation:google.maps.Animation.BOUNCE
+  });
+
+marker.setMap(map);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+
+<!--
+<style>
+googleMap {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    z-index: -1;
+}
+</style>
+-->
 </head>
+
 <body>
 <div id="header-wrapper">
 	<div id="header" class="container">
@@ -26,7 +67,36 @@
 			</ul>
 		</div>
 	</div>
+	
+	
 	</div>
+    <div style="background: cyan; border-radius: 15px; border: 2px solid blue; border-left: 10px solid yellow; border-right: 10px solid red; padding: 5px;
+			position: absolute; left: 30px;bottom: 100px;">
+<table border="0">
+<tbody>
+	<tr>
+		<td colspan="2" valign="top">
+		<span style="font-weight: bold;color: black">
+		<a name="emerg"></a>Hospital Information</span>
+		</td>
+	</tr>
+	<tr>
+	
+	<td valign="top"><ul class="ul1">
+		<li><font color="black"><strong>Open</strong>: 24 hours a day, 7 days a week</li></ul>
+		<ul><li><strong>Address</strong>:1045 Rue de la Montagne Montreal, QC H3G 1Y7</li></ul>
+		<ul><li><strong>Services</strong>: level one trauma centre, medical emergencies, psychiatric emergency department and short stay unit</li></ul>
+		<ul><li><strong>Contact</strong>: 514 224-2222 ext:1234</li></ul></font>
+	</td>
+	</tr>
+</tbody>
+</table>
+</div>
+
+<br>
+
+<div id="googleMap" style="width:500px;height:380px;position:absolute; right: 170px; bottom: 20px;"></div>
+
 </body>
 </html>	
 	
